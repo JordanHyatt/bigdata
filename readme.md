@@ -11,7 +11,7 @@
 
 
 ### Opening Jupyter Notebooks
-This command will open the familiar jupyter browser however the kernal will have access to the data model and ORM
+This command will open the familiar jupyter browser however the kernel will have access to the data model and ORM
 ```
 python manage.py shell_plus --notebook
 ```
