@@ -10,7 +10,8 @@
 - Django -> 2.5
 
 
-### Opening Notebooks with access to data model/orm
-''' 
-python manage.py 
-'''
+### Opening Jupyter Notebooks
+This command will open the familiar jupyter browser however the kernal will have access to the data model and ORM
+```
+python manage.py shell_plus --notebook
+```
