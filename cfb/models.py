@@ -40,8 +40,6 @@ class TeamSeason(models.Model):
     season =  models.ForeignKey('Season',on_delete=models.CASCADE)
     conference = models.ForeignKey('Conference',on_delete=models.CASCADE,null=True)
     coach = models.ForeignKey('Coach',on_delete=models.CASCADE,null=True)
-    win = models.IntegerField(null=True)
-    loss = models.IntegerField(null=True)
     def __str__(self):
         return f'{self.season}, {self.team}'
 
