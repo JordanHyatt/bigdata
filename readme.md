@@ -15,4 +15,3 @@ This command will open the familiar jupyter browser however the kernel will have
 ```
 python manage.py shell_plus --notebook
 ```
-<hr>
