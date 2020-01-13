@@ -5,7 +5,7 @@
 - Sqlite Browser (https://sqlitebrowser.org/)
 <hr>
 ### Build a suitable enviroment using requirements.txt
-#### Meat and Potatoes
+BLUF
 - Python -> 3.7
 - Django -> 2.5
 <hr>
