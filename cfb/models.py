@@ -13,6 +13,13 @@ class Coach(models.Model):
     firstName = models.CharField(max_length=40)
     def __str__(self):
         return f'{self.firstName} {self.lastName}'
+
+class Player(models.Model):
+    ''' The Model Represents a college football Player '''
+    lastName = models.CharField(max_length=40)
+    firstName = models.CharField(max_length=40)
+    def __str__(self):
+        return f'{self.firstName} {self.lastName}'
     
 class School(models.Model):
     ''' The Model Represents a college football School '''
