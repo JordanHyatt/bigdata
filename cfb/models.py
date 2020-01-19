@@ -27,6 +27,18 @@ class School(models.Model):
     abrev = models.CharField(verbose_name='School Abbreviation',max_length=10,null=True)
     def __str__(self):
         return f'{self.name}'
+
+class Stadium(models.Model):
+    name = models.CharField(max_length=200)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=2)
+    wiki_team_name = models.CharField(max_length=100)
+    surface = models.CharField(max_length=200)
+    capacity = models.IntegerField()
+    year_built = models.IntegerField()
+    year_expanded = models.IntegerField(null=True)
+    def __str__(self):
+        return f'{self.name}, {self.city}, {self.state}'    
     
 class Conference(models.Model):   
     ''' The Model Represents a college football Conference '''
@@ -47,6 +59,7 @@ class TeamSeason(models.Model):
     season =  models.ForeignKey('Season',on_delete=models.CASCADE)
     conference = models.ForeignKey('Conference',on_delete=models.CASCADE,null=True)
     coach = models.ForeignKey('Coach',on_delete=models.CASCADE,null=True)
+    stadium = models.ForeignKey('Stadium',on_delete=models.CASCADE,null=True)
     def __str__(self):
         return f'{self.season}, {self.team}'
 

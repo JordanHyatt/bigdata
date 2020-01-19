@@ -18,14 +18,22 @@ class DataFrameCleaner:
                 print(ve)
         return self.df
       
-    def keep_numeric_only(self,col_list=[]):
+    def keep_numeric_only(self,col_list=[],type_coerce=float):
         for col in col_list:
             self.df[col]=self.df[col].astype(str).str.strip().str.replace(r'[^\d.]+','')
             self.df[col]=self.df[col].replace('',np.nan)
             try:
-                self.df[col]=self.df[col].astype(float)
+                self.df[col]=self.df[col].astype(type_coerce)
             except ValueError as ve:
                 print(f'WARNING: conversion to float Failed ({col})')
                 print(ve)
         return self.df
         
+    def remove_wiki_citation(self,col_list=None):
+        if col_list == None:
+            col_list = self.df.columns
+        for col in col_list:
+            try:
+                self.df[col]=self.df[col].str.replace('[\[\d\]]]','').str.replace(r'[','')        
+            except:
+                pass
