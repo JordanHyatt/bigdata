@@ -60,9 +60,10 @@ class TeamSeason(models.Model):
     conference = models.ForeignKey('Conference',on_delete=models.CASCADE,null=True)
     coach = models.ForeignKey('Coach',on_delete=models.CASCADE,null=True)
     stadium = models.ForeignKey('Stadium',on_delete=models.CASCADE,null=True)
+    gsr = models.FloatField(verbose_name='Grad Success Rate',null=True)
+    fgr = models.FloatField(verbose_name='Federal Grad Rate',null=True)
     def __str__(self):
         return f'{self.season}, {self.team}'
-
 
 class CoachPay(models.Model):
     ''' This Model represents the coaches pay for a particular season'''
