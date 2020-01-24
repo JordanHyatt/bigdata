@@ -1,6 +1,14 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+
+class Player(models.Model):
+    ''' The Model Represents a college football Player '''
+    lastName = models.CharField(max_length=40)
+    firstName = models.CharField(max_length=40)
+    def __str__(self):
+        return f'{self.firstName} {self.lastName}'
+
 class Team(models.Model):
     school = models.ForeignKey('School',on_delete=models.CASCADE)
     type = models.CharField(verbose_name='Team Type',max_length=10)
@@ -13,14 +21,7 @@ class Coach(models.Model):
     firstName = models.CharField(max_length=40)
     def __str__(self):
         return f'{self.firstName} {self.lastName}'
-
-class Player(models.Model):
-    ''' The Model Represents a college football Player '''
-    lastName = models.CharField(max_length=40)
-    firstName = models.CharField(max_length=40)
-    def __str__(self):
-        return f'{self.firstName} {self.lastName}'
-    
+        
 class School(models.Model):
     ''' The Model Represents a college football School '''
     name = models.CharField(max_length=200)
@@ -82,7 +83,6 @@ class CfbstatsUrlId(models.Model):
     def __str__(self):
         return f'{self.team}, {self.urlId}'
 
-
 class TeamSeasonRecord(models.Model):
     class Meta:
         unique_together=[('desc','teamseason')]
@@ -111,7 +111,6 @@ class GameResult(models.Model):
     attendance = models.FloatField(verbose_name='Game Attendance',null=True)
     def __str__(self):
         return f'{self.teamseason} vs {self.oname}, {self.result} {self.score}-{self.oscore}'  
-
 
 class TeamSeasonStat(models.Model):
     class Meta:
